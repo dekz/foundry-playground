@@ -1,7 +1,10 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.10;
 
-import "./IERC20Token.sol";
+interface IERC20 {
+    function allowance(address owner, address spender) external returns (uint256);
+    function balanceOf(address owner) external returns (uint256);
+}
 
 contract FakeERC20 {
 
@@ -89,7 +92,7 @@ contract FakeERC20 {
     {
         uint256 trueAmount = abi.decode(
             _forwardCallToImpl(abi.encodeWithSelector(
-                IERC20Token.allowance.selector,
+                IERC20.allowance.selector,
                 owner,
                 spender
             )),
@@ -107,7 +110,7 @@ contract FakeERC20 {
     {
         uint256 trueAmount = abi.decode(
             _forwardCallToImpl(abi.encodeWithSelector(
-                IERC20Token.balanceOf.selector,
+                IERC20.balanceOf.selector,
                 owner
             )),
             (uint256)

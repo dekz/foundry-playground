@@ -2,15 +2,15 @@
 pragma solidity 0.8.10;
 
 import "ds-test/test.sol";
-import "../IERC20Token.sol";
-import "./ERC20TokenFaker.sol";
+import "solmate/tokens/ERC20.sol";
+import "../ERC20TokenFaker.sol";
 
 interface IUniswapV2Router
 {
     function swapExactTokensForTokens(
         uint amountIn,
         uint amountOutMin,
-        IERC20Token[] calldata path,
+        ERC20[] calldata path,
         address to,
         uint deadline
     ) external returns (uint[] memory amounts);
@@ -26,10 +26,10 @@ contract UniswapV2Test is
     {
         IUniswapV2Router router = IUniswapV2Router(0xf164fC0Ec4E93095b804a4795bBe1e041497b92a);
 
-        IERC20Token sellToken = IERC20Token(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
-        IERC20Token buyToken  = IERC20Token(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
+        ERC20 sellToken = ERC20(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
+        ERC20 buyToken  = ERC20(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48);
 
-        IERC20Token[] memory path = new IERC20Token[](2);
+        ERC20[] memory path = new ERC20[](2);
         path[0] = sellToken;
         path[1] = buyToken;
 
