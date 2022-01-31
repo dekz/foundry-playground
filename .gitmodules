@@ -4,3 +4,6 @@
 [submodule "/Users/jacob/tmp/foundry-playground/lib/solmate"]
 	path = /Users/jacob/tmp/foundry-playground/lib/solmate
 	url = https://github.com/Rari-Capital/solmate
+[submodule "/Users/jacob/tmp/foundry-playground/lib/forge-std"]
+	path = /Users/jacob/tmp/foundry-playground/lib/forge-std
+	url = https://github.com/brockelmore/forge-std
